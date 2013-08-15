@@ -35,7 +35,7 @@ If you checked this with Internet Explorer, you'd quickly realise something is s
 
 This is the importance of understanding Context correctly. Each Context requires a different method of escaping because each Context has different special characters and different escaping needs. You cannot just throw htmlspecialchars() and htmlentities() at everything and pray that your web application is safe.
 
-What went wrong in the above is that the browser will always unesape HTML Attributes before interpreting the context. We ignored the fact there were TWO Contexts to escape for. The unescaped HTML Attribute data is the exact same CSS as the unescaped example would have rendered anyway.
+What went wrong in the above is that the browser will always unescape HTML Attributes before interpreting the context. We ignored the fact there were TWO Contexts to escape for. The unescaped HTML Attribute data is the exact same CSS as the unescaped example would have rendered anyway.
 
 What we should have done was CSS escaped the $colour variable and only then HTML escaped it. This would have ensured that the $colour value was converted into a properly escaped CSS literal string by escaping the brackets, quotes, spaces, and other characters which allowed the expression() to be injected. By not recognising that our attribute encompassed two Contexts, we escaped it as if it was only one: a HTML Attribute. A common mistake to make.
 
